@@ -11,7 +11,7 @@ html(lang="en")
   body
     .wrapper
       .maincontent
-        //- .parallax
+        .parallax
           .parallax__layer
             +image('Sky.png', 'parallax__img')
           .parallax__layer
@@ -117,34 +117,57 @@ html(lang="en")
                 .review__flexbox
                   h2.reviews__title.minor Что говорят обо мне
                   .review-button
-                    .review-buttons__item.review-buttons__item--slide--prev 
+                    .review-buttons__item.review-buttons__item--slide--prev(ref="prev") 
                       +icon("arrow-down", "review-arrow__prev")
-                    .review-buttons__item.review-buttons__item--slide--next
+                    .review-buttons__item.review-buttons__item--slide--next(ref="next")
                       +icon("arrow-down", "review-arrow__next")
                 .reviews__block 
-                  ul.reviews__list(ref="flickity" :options="flickityOptions")
-                    li.reviews__item
-                      .reviews__icons  
-                        +icon("quote", "reviews__icon")
-                      .reviews__desc
-                        p.reviews__paragraph Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессоных ночей! 
-                        .reviews__user
-                          .user__pic
-                            +image("KO.jpg", "user__img")
-                          .user__desc
-                            p.user__name Ковальчук Дмитрий
-                            p.user__position Основатель LoftSchool
-                    li.reviews__item
-                      .reviews__icons  
-                        +icon("quote", "reviews__icon")
-                      .reviews__desc
-                        p.reviews__paragraph Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессоных ночей! 
-                        .reviews__user
-                          .user__pic
-                            +image("Di.jpg", "user__img")
-                          .user__desc
-                            p.user__name Владимир Сабанцев
-                            p.user__position Преподаватель
+                  flickity(ref="flickity" :options="flickityOptions")
+                    ul.reviews__list(ref="flickity" :options="flickityOptions")
+                      li.reviews__item
+                        .reviews__icons  
+                          +icon("quote", "reviews__icon")
+                        .reviews__desc
+                          p.reviews__paragraph Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессоных ночей! 
+                          .reviews__user
+                            .user__pic
+                              +image("KO.jpg", "user__img")
+                            .user__desc
+                              p.user__name Ковальчук Дмитрий
+                              p.user__position Основатель LoftSchool
+                      li.reviews__item
+                        .reviews__icons  
+                          +icon("quote", "reviews__icon")
+                        .reviews__desc
+                          p.reviews__paragraph Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессоных ночей! 
+                          .reviews__user
+                            .user__pic
+                              +image("KO.jpg", "user__img")
+                            .user__desc
+                              p.user__name Ковальчук Дмитрий
+                              p.user__position Основатель LoftSchool
+                      li.reviews__item
+                        .reviews__icons  
+                          +icon("quote", "reviews__icon")
+                        .reviews__desc
+                          p.reviews__paragraph Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессоных ночей! 
+                          .reviews__user
+                            .user__pic
+                              +image("KO.jpg", "user__img")
+                            .user__desc
+                              p.user__name Ковальчук Дмитрий
+                              p.user__position Основатель LoftSchool
+                      li.reviews__item
+                        .reviews__icons  
+                          +icon("quote", "reviews__icon")
+                        .reviews__desc
+                          p.reviews__paragraph Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессоных ночей! 
+                          .reviews__user
+                            .user__pic
+                              +image("Di.jpg", "user__img")
+                            .user__desc
+                              p.user__name Владимир Сабанцев
+                              p.user__position Преподаватель
           section.sixth-page.page
             .container.sixth-page__container
               .form__block
@@ -183,4 +206,4 @@ html(lang="en")
                 p.quote__paragraph Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
                 .quote__name Martin Golding  
 
-        include ./skills
+    include ./skills

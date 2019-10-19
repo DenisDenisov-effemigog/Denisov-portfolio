@@ -1,0 +1,19 @@
+.myWork{
+    height: 100%;
+}
+.myWork__desc{
+    display: grid;
+    grid-template: 
+    "slider mySch" 1fr
+    / 1fr 1fr;
+    grid-gap: 35px;
+    padding-top: 70px;
+    
+
+    @include tablets{
+        grid-template: 
+        "slider" 1fr
+        "mySch"  1fr;
+        justify-items: center;
+    }
+}

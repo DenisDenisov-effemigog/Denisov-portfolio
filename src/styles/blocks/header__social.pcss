@@ -1,0 +1,31 @@
+.header__social{
+    grid-area: icons;
+
+    @include tablets{
+        grid-area: nav;
+        justify-self: end;
+    }
+}
+.header__icon{
+    width: 25px;
+    transition: .3s;
+    fill: #464d62;
+
+    &:hover{
+        opacity: 0.3;
+    }
+}
+.header__list{
+    display: flex;
+
+    @include phones{
+        display: none;
+    }
+}
+.header__item{
+    padding-left: 21%;
+
+    &:first-child{
+        padding-left: 0;
+    }
+}

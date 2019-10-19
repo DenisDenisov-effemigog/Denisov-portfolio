@@ -1,0 +1,35 @@
+.skills__block{
+    display: grid;
+    grid-template:
+    "skillPic skillDesc" 1fr
+    /1fr 2.5fr;
+
+    @include tablets{
+        grid-template: "skillDesc"
+         "skillPic";
+         justify-content: center;
+        
+    }
+}
+.skills__text{
+    padding-top: 65px;
+    color: rgba(#464d62, .5);
+}
+.skills__pic{
+    grid-area: skillPic;
+    width: 550px;
+    align-self: center;
+
+    @include tablets{
+    width: 260px;
+    justify-self: center;
+    }
+}
+.skills__desc{
+    grid-area: skillDesc;
+
+    @include tablets{
+        text-align: center;
+    }
+}
+

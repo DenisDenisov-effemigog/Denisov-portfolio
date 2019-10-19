@@ -1,0 +1,186 @@
+include ./mixins
+
+
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title Portfolio | main page
+  body
+    .wrapper
+      .maincontent
+        //- .parallax
+          .parallax__layer
+            +image('Sky.png', 'parallax__img')
+          .parallax__layer
+            +image('Mountain.png', 'parallax__img')
+          .parallax__layer
+            +image('Baloon.png', 'parallax__img')
+          .parallax__layer
+            +image('Mountain1.png', 'parallax__img')
+          .parallax__layer
+            +image('Cloud.png', 'parallax__img')
+          .parallax__layer
+            +image('Man.png', 'parallax__img')
+        .merge-block
+          .block
+            header.header
+              .container.header__container
+                .header__logo
+                  p.logo дд
+                .header__nav-block
+                  +nav("header-nav", ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
+                  .header__hamburger-menu
+                    .hamburger-menu__btn 
+                    +nav("hamburger-menu-header-nav", ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
+                .header__social
+                  +soc("header")
+            section.intro-page.page 
+              .container.intro__container
+                .intro__content
+                  .intro__desc
+                    p.title__desc Личный сайт веб разработчика 
+                  .intro__title
+                    h1.title__name Денисов Денис
+                .scroll__block
+                  .intro__scroll  скролл
+                    +icon('scroll', 'scroll__icon')
+            section.second-page.page 
+              .container.second-page__container
+                .info__block
+                  .profile__info
+                    .profile__pic
+                      +image('foto.jpg', 'profile__img')
+                    .profile__desc
+                      .ask
+                        p.living Проживаю:
+                        p.age Возраст:
+                        p.born Родился:
+                      .answer
+                        p.town Москва
+                        p.year 30 лет 
+                        p.date 7 мая 1989
+                  .blog__info
+                    p.blog__paragraph Привет, меня зовут
+                    h2.title Денисов Денис
+                    p.blog__desc Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                    p.blog__text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нем свой контент. А пока посмотрите, как тут все классно и красиво! 
+        .triangles
+          svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(points="0,0 0,100, 1000,100")
+          svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(points="0,100 1000,100 1000,0")
+        section.third-page.page
+          .container.third-page__container
+            .skills__block
+              .skills__pic
+                +image('Backpack.png', 'skills__img')
+              .skills__desc
+                h2.skills__title.minor Чем я могу быть полезен вам
+                p.skills__text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нем свой контент. А пока посмотрите, как тут все классно и красиво! 
+                div#skills-component
+        section.fourth-page.page
+          .container.fourth-page__container
+            .myWork
+              h2.myWork__title.minor Мои Работы
+              .myWork__desc
+                .slider
+                  .slider-block
+                    .slider-block__pic
+                      +image("1.jpg", "slider__fillpic")
+                    .slider__preview
+                      +prew("slider-pic")
+                    .slider__buttons
+                      .slider-button
+                        .slider-buttons__item.slider-buttons__item--slide--prev 
+                          +icon("arrow-down", "arrow__prev")
+                        .slider-buttons__item.slider-buttons__item--slide--next
+                          +icon("arrow-down", "arrow__prev")
+                .myWork__school
+                  +ul("school-nav", ["HTML", "CSS", "Javascript"])
+                  h2.school__title.minor Сайт школы образования
+                  p.school__paragraph Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессоных ночей! 
+                  p.block-help
+                    +icon("link", "link__icon")
+                    a.school__link(href="#") Посмотреть сайт
+        .second-triangles.triangles
+            svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+              polygon(points="0,0 1000,100, 1000,0")
+            svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+              polygon(points="0,0 1000,0, 0,100")
+        .second-merge__block
+          section.fifth-page.page
+            .container.fifth-page__container
+              .reviews
+                .review__flexbox
+                  h2.reviews__title.minor Что говорят обо мне
+                  .review-button
+                    .review-buttons__item.review-buttons__item--slide--prev 
+                      +icon("arrow-down", "review-arrow__prev")
+                    .review-buttons__item.review-buttons__item--slide--next
+                      +icon("arrow-down", "review-arrow__next")
+                .reviews__block 
+                  ul.reviews__list(ref="flickity" :options="flickityOptions")
+                    li.reviews__item
+                      .reviews__icons  
+                        +icon("quote", "reviews__icon")
+                      .reviews__desc
+                        p.reviews__paragraph Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессоных ночей! 
+                        .reviews__user
+                          .user__pic
+                            +image("KO.jpg", "user__img")
+                          .user__desc
+                            p.user__name Ковальчук Дмитрий
+                            p.user__position Основатель LoftSchool
+                    li.reviews__item
+                      .reviews__icons  
+                        +icon("quote", "reviews__icon")
+                      .reviews__desc
+                        p.reviews__paragraph Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессоных ночей! 
+                        .reviews__user
+                          .user__pic
+                            +image("Di.jpg", "user__img")
+                          .user__desc
+                            p.user__name Владимир Сабанцев
+                            p.user__position Преподаватель
+          section.sixth-page.page
+            .container.sixth-page__container
+              .form__block
+                h2.form-block__title.minor Связаться со мной
+                .feedback
+                  form.feedback__form(action="")
+                    .form__row
+                      label.form__label(for="")
+                        .form__title Введите ваше имя
+                        input(type="text").input__form.input__form--name 
+                      label.form__label(for="")                      
+                        .form__title Введите ваш email                      
+                        input(type="text").input__form.input__form--mail 
+                    .form__row--textarea
+                      label.form__label--textarea(for="")
+                        .form__title Coобщение к письму
+                        textarea(name="").textarea__form
+                    .form__row--button
+                      button(type="button").button__form Отправить
+      footer.footer
+        .container.footer__container
+          .left__block
+            .copyright
+              span.cd &copy
+              span.cd 2019
+            .footer__info
+              p.name Денисов Денис
+              p.link Личный сайт веб-разработчика
+          .right__block
+            +ul("footer-nav", ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
+            .center__desc
+              .desc__social
+                p.social__paragraph Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нем свой контент. А пока посмотрите, как тут все классно и красиво! 
+                +soc("footer-social")
+              .qoute
+                p.quote__paragraph Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+                .quote__name Martin Golding  
+
+        include ./skills

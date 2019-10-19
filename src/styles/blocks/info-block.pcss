@@ -1,0 +1,23 @@
+
+.info__block{
+    display: grid;
+    grid-template: "profile blog" 1fr/ 1fr 1fr;
+    justify-items: center;
+    
+    @include phones{
+        grid-template: 
+        "profile" "blog" 1fr
+        / 1fr 
+    }
+}
+.blog__paragraph{
+    padding-bottom: 30px;
+}
+.blog__desc{
+    padding-top: 40px;
+}
+.blog__text{
+    padding-top: 100px;
+    font-style: italic;
+}
+

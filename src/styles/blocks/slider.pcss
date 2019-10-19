@@ -1,0 +1,68 @@
+.slider-pic__item{
+    width: 140px;
+
+
+    @include desktop{
+        width: 120px;
+    }
+}
+.slider-block{
+    @include tablets{
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    @include phones{
+        width: 100%;
+    }
+}
+.slider{
+    grid-area: slider;   
+}
+.slider-block{
+    position: relative;
+}
+.slider__preview{
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+
+    @include phones{
+        display: none;
+    }
+}
+.slider-button{
+    position: absolute;
+    bottom: -55px;
+    right: 14px;
+    position: absolute;
+    background: #353e4e;
+    padding: 10px;
+    transform: rotate(-90deg);
+
+    @include desktop{
+        bottom: -55px;
+    }
+
+    @include phones{
+        bottom: -12px;
+    }
+}
+.slider-buttons__item--slide--next{
+    transform: rotate(180deg)
+}
+.slider-buttons__item{
+    width: 20px;
+    fill: #fff;
+    transition: .3s;
+
+    &:hover{
+        fill: #ccc;
+    }
+}
+.arrow__prev, .arrow__next{
+    cursor: pointer;
+}
+
+
+

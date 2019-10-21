@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Flickity from 'vue-flickity';
  
 new Vue({
+  el: "#slider",
   components: {
     Flickity
   },
@@ -21,11 +22,11 @@ new Vue({
   
   methods: {
     next() {
-      this.$refs["next"].flickity.next();
+      this.$refs.flickity.next();
     },
     
     previous() {
-      this.$refs["prev"].flickity.previous();
+      this.$refs.flickity.previous();
     }
   }
 });

@@ -3,7 +3,18 @@
     
 }
 .skills-row__list{
-    display: flex;
+    display: flex; 
+    flex-wrap: wrap;
+    
+    @include phones{
+        text-align: center;
+        text-align: -webkit-center;
+    }
+}
+.skills-row__item{
+    @include phones{
+        width: 50%;
+    }
 }
 .skills-row__title{
     font-size: 24px;

@@ -12,61 +12,60 @@ html(lang="en")
     .wrapper
       .maincontent
         .parallax
-          .parallax__layer
-            +image('Sky.png', 'parallax__img')
-          .parallax__layer
-            +image('Mountain.png', 'parallax__img')
-          .parallax__layer
-            +image('Baloon.png', 'parallax__img')
-          .parallax__layer
-            +image('Mountain1.png', 'parallax__img')
-          .parallax__layer
-            +image('Cloud.png', 'parallax__img')
-          .parallax__layer
-            +image('Man.png', 'parallax__img')
-        .merge-block
-          .block
+          .parallax__layer.parallax__layer_1
+            +image('Sky.png', 'parallax__image parallax__image_1')
+          .parallax__layer.parallax__layer_2
+            +image('Mountain.png', 'parallax__image parallax__image_2')
+          .parallax__layer.parallax__layer_3
+            +image('Baloon.png', 'parallax__image parallax__image_3')
+          .parallax__layer.parallax__layer_4
+            +image('Mountain1.png', 'parallax__image parallax__image_4')
+          .parallax__layer.parallax__layer_5
+            +image('Cloud.png', 'parallax__image parallax__image_5')
+          .parallax__layer.parallax__layer_6
+            +image('Man.png', 'parallax__image parallax__image_6')
+        .merge__block
+          section.intro-page.page 
             header.header
-              .container.header__container
-                .header__logo
-                  p.logo дд
-                .header__nav-block
-                  +nav("header-nav", ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
-                  .header__hamburger-menu
-                    .hamburger-menu__btn 
-                    +nav("hamburger-menu-header-nav", ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
-                .header__social
-                  +soc("header")
-            section.intro-page.page 
-              .container.intro__container
-                .intro__content
-                  .intro__desc
-                    p.title__desc Личный сайт веб разработчика 
-                  .intro__title
-                    h1.title__name Денисов Денис
-                .scroll__block
-                  .intro__scroll  скролл
-                    +icon('scroll', 'scroll__icon')
-            section.second-page.page 
-              .container.second-page__container
-                .info__block
-                  .profile__info
-                    .profile__pic
-                      +image('foto.jpg', 'profile__img')
-                    .profile__desc
-                      .ask
-                        p.living Проживаю:
-                        p.age Возраст:
-                        p.born Родился:
-                      .answer
-                        p.town Москва
-                        p.year 30 лет 
-                        p.date 7 мая 1989
-                  .blog__info
-                    p.blog__paragraph Привет, меня зовут
-                    h2.title Денисов Денис
-                    p.blog__desc Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-                    p.blog__text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нем свой контент. А пока посмотрите, как тут все классно и красиво! 
+            .container.header__container
+              .header__logo
+                p.logo дд
+              .header__nav-block
+                +nav("header-nav", ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
+                .header__hamburger-menu
+                  .hamburger-menu__btn 
+                  +nav("hamburger-menu-header-nav", ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"])
+              .header__social
+                +soc("header")
+            .container.intro__container
+              .intro__content
+                .intro__desc
+                  p.title__desc Личный сайт веб разработчика 
+                .intro__title
+                  h1.title__name Денисов Денис
+              .scroll__block
+                .intro__scroll  скролл
+                  +icon('scroll', 'scroll__icon')
+          section.second-page.page 
+            .container.second-page__container
+              .info__block
+                .profile__info
+                  .profile__pic
+                    +image('foto.jpg', 'profile__img')
+                  .profile__desc
+                    .ask
+                      p.living Проживаю:
+                      p.age Возраст:
+                      p.born Родился:
+                    .answer
+                      p.town Москва
+                      p.year 30 лет 
+                      p.date 7 мая 1989
+                .blog__info
+                  p.blog__paragraph Привет, меня зовут
+                  h2.title Денисов Денис
+                  p.blog__desc Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                  p.blog__text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нем свой контент. А пока посмотрите, как тут все классно и красиво! 
         .triangles
           svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
             polygon(points="0,0 0,100, 1000,100")
@@ -106,25 +105,24 @@ html(lang="en")
                     +icon("link", "link__icon")
                     a.school__link(href="#") Посмотреть сайт
         .second-triangles.triangles
-            svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
-              polygon(points="0,0 1000,100, 1000,0")
-            svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
-              polygon(points="0,0 1000,0, 0,100")
+          svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(points="0,0 1000,100, 1000,0")
+          svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(points="0,0 1000,0, 0,100")
         .second-merge__block
           section.fifth-page.page
             .container.fifth-page__container
-              .reviews
+              .reviews#slider
                 .review__flexbox
                   h2.reviews__title.minor Что говорят обо мне
                   .review-button
-                    .review-buttons__item.review-buttons__item--slide--prev(ref="prev") 
+                    button.review-buttons__item.review-buttons__item--slide--prev(@click="previous()") 
                       +icon("arrow-down", "review-arrow__prev")
-                    .review-buttons__item.review-buttons__item--slide--next(ref="next")
+                    button.review-buttons__item.review-buttons__item--slide--next(@click="next()")
                       +icon("arrow-down", "review-arrow__next")
                 .reviews__block 
                   flickity(ref="flickity" :options="flickityOptions")
-                    ul.reviews__list(ref="flickity" :options="flickityOptions")
-                      li.reviews__item
+                      .reviews__item
                         .reviews__icons  
                           +icon("quote", "reviews__icon")
                         .reviews__desc
@@ -135,7 +133,7 @@ html(lang="en")
                             .user__desc
                               p.user__name Ковальчук Дмитрий
                               p.user__position Основатель LoftSchool
-                      li.reviews__item
+                      .reviews__item
                         .reviews__icons  
                           +icon("quote", "reviews__icon")
                         .reviews__desc
@@ -146,7 +144,7 @@ html(lang="en")
                             .user__desc
                               p.user__name Ковальчук Дмитрий
                               p.user__position Основатель LoftSchool
-                      li.reviews__item
+                      .reviews__item
                         .reviews__icons  
                           +icon("quote", "reviews__icon")
                         .reviews__desc
@@ -157,7 +155,7 @@ html(lang="en")
                             .user__desc
                               p.user__name Ковальчук Дмитрий
                               p.user__position Основатель LoftSchool
-                      li.reviews__item
+                      .reviews__item
                         .reviews__icons  
                           +icon("quote", "reviews__icon")
                         .reviews__desc
@@ -206,4 +204,4 @@ html(lang="en")
                 p.quote__paragraph Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
                 .quote__name Martin Golding  
 
-    include ./skills
+          include ./skills

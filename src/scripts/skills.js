@@ -12,7 +12,6 @@ const skill = {
       );
       const percent = (dashArray / 100) * (100 - this.skillPercent);
       circle.style.strokeDashoffset = percent;
-      console.log( getComputedStyle(circle))
   },
 };
 

@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Flickity from 'vue-flickity';
  
 new Vue({
-  el: "#sliderRew",
+  el: "#sliderRev",
   components: {
     Flickity
   },
@@ -10,7 +10,7 @@ new Vue({
   data() {
     return {
       flickityOptions: {
-        initialIndex: 3,
+        initialIndex: 4,
         prevNextButtons: false,
         pageDots: false,
         wrapAround: true

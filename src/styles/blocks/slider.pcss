@@ -1,14 +1,18 @@
 .slider-pic__item{
     width: 110px;
 
+
     @include desktop{
         width: 90px;
+    }
+
+    &:hover{
+        border: 2px solid orange;
     }
 }
 .active{
     border: 2px solid orange;
 }
-
 .slider-block{
     @include tablets{
         width: 70%;
@@ -36,33 +40,19 @@
 }
 .slider__button{
     position: absolute;
-    bottom: -30px;
+    bottom: -36px;
     right: 0;
     background: #353e4e;
-    padding: 5px 0;
-    width: 60px;
+    justify-content: space-between;
     display: flex;
-    justify-content: space-around;
+}
 
-    @include desktop{
-        
-    }
-
-    @include phones{
-        
-    }
-}
-.slider-buttons__item--slide--next{
-    transform: rotate(-90deg);
-    
-}
-.slider-buttons__item--slide--prev{
-    transform: rotate(-90deg);
-    
-}
 .slider-buttons__item{
-    transition: .3s;
+    width: 27px;
     color: #fff;
+    transition: .3s;
+    transform: rotate(-90deg);
+    padding: 8px;
     cursor: pointer;
 
     &:hover{

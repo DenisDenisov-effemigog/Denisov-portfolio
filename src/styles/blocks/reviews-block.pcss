@@ -3,18 +3,9 @@
     fill: rgba(#464d62, .2);
     padding-right: 20px;
 }
-.reviews__list{
-    display: flex;
-    overflow: hidden;
-
-    @include phones{
-        overflow: hidden;
-    }
-}
 .reviews__item{
-    display: flex;
-    width: 50%;
-    
+    display: flex; 
+    position: static;  
 }
 .reviews__user{
     display: flex;
@@ -22,6 +13,8 @@
 }
 .reviews__block{
     padding-top: 105px;
+    height: 100%;
+
 }
 .reviews__paragraph{
     padding-right: 53%;
@@ -47,4 +40,8 @@
 .user__name{
     font-size: 18px;
     font-weight: bold;
+}
+.review, .flickity, .flickity-viewport{
+    height: 100%;
+    height: inherit;
 }

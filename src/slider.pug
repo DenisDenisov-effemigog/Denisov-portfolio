@@ -1,0 +1,56 @@
+script(type="text/x-template")#slider-container
+    .myWork__desc
+        display(
+            :works="works"
+            :current-work="currentWork"
+            @slide="handleSlide"
+        )
+        info(
+            :current-work="currentWork"
+        )
+
+script(type="text/x-template")#slider-display
+    .slider(data-slide="1")
+        .slider-block
+            .slider-block__pic
+                img(:src="currentWork.photo").slider__fullpic
+            thumbs(
+                :works="works"
+                :current-work="currentWork"
+            )
+            btns(
+                @slide="$emit('slide', $event)"
+            )
+
+script(type="text/x-template")#slider-thumbs
+    .slider__preview
+        ul.slider-pic__list
+            li.slider-pic__item(
+                v-for="work in reversedWorks"
+                :key="work.id"
+                :class="{active: work.id === currentWork.id}")
+                a.slider-pic__link
+                    img(:src="work.photo" alt="").slider-pic__img
+
+
+script(type="text/x-template")#slider-btns
+    .slider__button
+        .slider-buttons__item.slider-buttons__item--slide--next(@click.prevent="$emit('slide', 'next')") >
+        .slider-buttons__item.slider-buttons__item--slide--prev(@click.prevent="$emit('slide', 'prev')") <
+
+
+script(type="text/x-template")#slider-info
+    .myWork__school
+        tags()
+        h2.school__title.minor {{currentWork.title}}
+        .school__paragraph
+            p {{currentWork.desc}}
+        .block-help
+            a.school__link(href="#") {{currentWork.link}}
+
+
+script(type="text/x-template")#slider-tags
+    ul.school-nav__list
+        each item in ['Html', 'Css', 'JavaScript']
+            li.school-nav__item
+                .school-nav__link #{item}

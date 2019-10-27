@@ -1,14 +1,20 @@
 .skills{
     padding-top: 100px;
+
+    @include phones{
+        padding-top: 10px;
+    }
     
 }
 .skills-row__list{
-    display: flex; 
-    flex-wrap: wrap;
-    
+    display: flex;
+
+    @include tablets{
+        justify-content: center;
+    }
+
     @include phones{
-        text-align: center;
-        text-align: -webkit-center;
+        flex-wrap: wrap;
     }
 }
 .skills-row__item{

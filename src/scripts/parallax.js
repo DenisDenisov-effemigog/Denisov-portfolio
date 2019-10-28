@@ -1,43 +1,25 @@
-var parallax = ( function () {
-    var bg = document.querySelector('.parallax__layer_1');
-    var user = document.querySelector('.merge__block');
-    var mountain = document.querySelector('.parallax__img_2');
-    var baloon = document.querySelector('.parallax__img_3');
-    var secondMountain = document.querySelector('.parallax__img_4');
-    var cloud = document.querySelector('.parallax__img_5');
-    var man = document.querySelector('.parallax__img_6');
+const parallax = document.querySelector(".parallax");
+const layers = parallax.children;
+const layersToExclude = [0, 4, 6]; // чувак на горе, самые нижние облака
+function moveLayersDependsOnScroll(wScroll) {
+ Array.from(layers).forEach((layer, layerIndex) => {
+   const strafe = wScroll / (-layerIndex * 40) + '%';
+console.log(layerIndex)
+   
+   if (layersToExclude.includes(layerIndex) === false) {
+     layer.style.transform = translateY(strafe);
+   }
 
-    return {
-        move: function (block, windowScroll, strafeAmount) {
-            var strafe = windowScroll / -strafeAmount   + '%';
-            var transformString = 'translate3d(0, ' + strafe + ', 0)'
-
-            var style = block.style;
-            
-            style.transform = transformString;
-            style.webkitTransform = transformString;
-            
-            },
-
-            init: function (wScroll) {
-                this.move(bg, wScroll, 45);
-                this.move(mountain, wScroll, 40);
-                this.move(baloon, wScroll, 40);
-                this.move(secondMountain, wScroll, 30);
-                this.move(man, wScroll, 25);
-                this.move(cloud, wScroll, 20);
-                this.move(user, wScroll, 5);
-        }
-    }
+   
+ });
 
 
-
-}());
-
-
-window.onscroll = function () {
-    let wScroll = window.pageYOffset;
-    
-    parallax.init(wScroll);
 }
 
+const windowWidth = document.body.clientWidth;
+if (windowWidth > 768) {
+ window.addEventListener("scroll", e => {
+   const wScroll = window.pageYOffset;
+   moveLayersDependsOnScroll(wScroll);
+ });
+}

@@ -174,7 +174,19 @@
                   .right__desc_control
                     .control__edit Править
                     .control__del Удалить
+       
 </template>
-<style lang="postcss" scoped>
- @import url(./main.pcss);
+<style lang="postcss" src="./main.pcss" >
+
 </style>
+<script>
+  import inner from "./components/inner"
+
+  export default {
+    
+    components: {
+      inner
+    },
+    
+  }
+</script>

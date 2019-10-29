@@ -1,5 +1,5 @@
 <template lang="pug">
-    div
+    div.hero_desc
       header.header
           .container.header__container
             .admin__info
@@ -11,8 +11,8 @@
               p.panel__desc Панель администрирования
               p.panel__exit Выйти
       section.section.first__section        
-          .container.first__container
-            aside.sidebar
+        aside.sidebar
+          .container.sidebar__container
               nav.sidebar__nav
                ul.nav__list
                  li.nav__item
@@ -21,57 +21,14 @@
                    a(href='#').nav__link Работы
                  li.nav__item
                    a(href='#').nav__link Отзывы    
-            .block__about
+        .container.first__container
+          .block__about
                 .title.about__title Блок &laquo Обо мне &raquo
                 .block_about__form
                   .about_left__block
-                    form.about__form
-                      .about_form__column
-                        .about_form__row
-                          label.about_form__label(for="")
-                            .about_form__title Название новой группы
-                            input.about_form__input
-                          .about__form__check_button
-                            .check_button__check_mark
-                            .check_button__check_cross
-                        .about_form__row
-                          label.about_form__label_skills(for="")
-                            .about_form__title_skills Новый навык
-                            input.about_form__input_new_skills 
-                          label.about_form__label_skills(for="")
-                            .about_form__title_skills 0
-                            input.about_form__input_percent_skills 
-                          .about_form__button_add
-                            svg(viewBox="0 0 100 100").about_form-shape
-                              circle(cx="50" cy="50" r="40" ref="color-circle" fill="url(#gradient)" transform="rotate(180 50 50)").about_form__circle
-                              linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
-                                  stop(offset="0%" stop-color="rgb(63, 53, 203)")
-                                  stop(offset="100%" stop-color="rgb(0, 106, 237)")
-                            .about_form-text +
+                   inner
                   .about_right__block
-                    form.about__form
-                      .about_form__column
-                        .about_form__row
-                          label.about_form__label(for="")
-                            .about_form__title Название новой группы
-                            input.about_form__input
-                          .about__form__check_button
-                            .check_button__check_mark
-                            .check_button__check_cross
-                        .about_form__row
-                          label.about_form__label_skills(for="")
-                            .about_form__title_skills Новый навык
-                            input.about_form__input_new_skills 
-                          label.about_form__label_skills(for="")
-                            .about_form__title_skills 0
-                            input.about_form__input_percent_skills 
-                          .about_form__button_add
-                            svg(viewBox="0 0 100 100").about_form-shape
-                              circle(cx="50" cy="50" r="40" ref="color-circle" fill="url(#gradient)" transform="rotate(180 50 50)").about_form__circle
-                              linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
-                                  stop(offset="0%" stop-color="#5500f2")
-                                  stop(offset="100%" stop-color="#8f00ef")
-                            .about_form-text +
+                    inner
       section.section.second__section
         .container.second-section__container
           .jobs 
@@ -180,10 +137,11 @@
 
 </style>
 <script>
+  import {Validator} from "simple-vue-validator"; 
   import inner from "./components/inner"
 
   export default {
-    
+   
     components: {
       inner
     },

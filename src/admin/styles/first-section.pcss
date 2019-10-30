@@ -1,18 +1,14 @@
+    .hero_desc{
+      background-color: #ccc;
+    }
+    .sidebar{
+      background-color: #fff;
+    }
 
-    .first__container{
-        display: grid;
-        grid-template: 
-        "aside" 0.3fr 
-        "about" 1fr 
-        / 1fr;
-      }
-      .sidebar{
-        grid-area: aside
-      }
-      .nav__list{
+    .nav__list{
         display: flex;
       }
-      .nav__item{
+    .nav__item{
         padding: 15px 30px;
     
         &:hover{
@@ -20,13 +16,11 @@
           color: #383bcf
         }
       }
-      .block__about{
-        grid-area: about
-      }
       .title{
         font-size: 21px;
         color: #414c63;
         font-weight: bold;
+        padding-top: 40px;
       }
       .block_about__form{
         display: grid;
@@ -34,9 +28,13 @@
         "left right" 1fr
         / 1fr 1fr;
         grid-gap: 20px;
+        padding-top: 30px;
     }
     .about_left__block{
       grid-area: left;
+    }
+    .block{
+      padding: 30px;
     }
     .about_form__title{
       font-size: 18px;

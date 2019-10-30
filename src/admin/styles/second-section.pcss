@@ -1,18 +1,41 @@
-
+.second-section__container{
+  margin-top: 30px;
+  
+}
+.jobs_block{
+  background-color: #fff;
+  padding: 25px;
+}
+.jobs__title{
+  border-bottom: 2px solid rgba(65,76,99,.2);
+}
   .adding_jobs{
     display: grid;
     grid-template: 
     "left right" 1fr
     /1fr 1fr;
     grid-gap: 20px;
+    padding-top: 30px;
 }
 .adding_jobs__left{
   grid-area: left;
-  background-color: rgba(#ccc, 0.5);
   display: flex;
   align-items: center;
   text-align: center;
   justify-content: center;
+}
+.jobs__download_block{
+  background-color: rgba(#ccc, 0.5);
+  width: 90%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.download_block__desc{
+  padding-bottom: 10px;
 }
 .button{
   outline: none;
@@ -22,6 +45,7 @@
     background: linear-gradient(45deg,rgb(63, 53, 203), rgb(0, 106, 237));
 }
 .adding_jobs__right{
+  padding: 20px;
   grid-area: right;
 }
 .download_form__input{
@@ -41,12 +65,17 @@
   color: #0565eb;
   padding-right: 25px;
 }
+.jobs{
+  padding-top: 30px;
+  background-color: #ccc;
+}
 .jobs__list{
     display: flex;
 }
 .jobs__item{
   width: 25%;
   margin-right: 25px;
+  background-color: #fff;
 }
 .jobs_left__block{
   grid-area: left;
@@ -78,7 +107,7 @@
 }
 .jobs_right__pic{
   background: url(../images/content/1.jpg) center center/cover no-repeat;
-  width: 300px;
+  width: 250px;
   height: 150px;
 }
 .jobs_right__list{
@@ -100,6 +129,9 @@
   font-size: 18px;
   font-weight: bold;
   color: #414c63;
+}
+.jobs_right__desc{
+  padding: 15px;
 }
 .jobs_right__work_desc{
   font-size: 18px;

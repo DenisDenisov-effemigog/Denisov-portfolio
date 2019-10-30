@@ -8,10 +8,28 @@
   height: 1207px;
 
   @include desktop{
-      height: 1185px;
+      height: 79rem;
   }
+  @include tablets{
+    height: 85rem;
+}
+@include phones{
+    height: 95rem;
+}
 
   &__layer{
+    .parallax__img{
+        @include tablets{
+           max-width: 128%;
+        }
+        @include phones{
+            height: 100%;
+        }
+        @include phones{
+            height:53%;
+            max-width: 180%;
+        }
+    }
     position: absolute;
     left: 0;
     width: 100%;

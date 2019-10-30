@@ -31,35 +31,35 @@
                     inner
       section.section.second__section
         .container.second-section__container
-          .jobs 
-          h2.title.jobs__title Добавление Работы  
-          .adding_jobs
-            .adding_jobs__left
-              .jobs__download_block
-                .download_block__desc Перетащите либо загрузите изображение
-                button.button.download_block__button загрузить
-            .adding_jobs__right
-              .jobs__download_form
-              form.download_form
-                .download_form__row
-                  label.download_form__label
-                    .download_form__title Название
-                    input.download_form__input
-                .download_form__row
+          .jobs_block 
+            h2.title.jobs__title Добавление Работы  
+            .adding_jobs
+              .adding_jobs__left
+                .jobs__download_block
+                  .download_block__desc Перетащите либо загрузите изображение
+                  button.button.download_block__button загрузить
+              .adding_jobs__right
+                .jobs__download_form
+                form.download_form
+                  .download_form__row
                     label.download_form__label
-                      .download_form__title Ссылка
+                      .download_form__title Название
                       input.download_form__input
-                .download_form__row
+                  .download_form__row
+                      label.download_form__label
+                        .download_form__title Ссылка
+                        input.download_form__input
+                  .download_form__row
+                      label.download_form__label
+                        .download_form__title Описание
+                        textarea.download_form__textarea
+                  .download_form__row
                     label.download_form__label
-                      .download_form__title Описание
-                      textarea.download_form__textarea
-                .download_form__row
-                  label.download_form__label
-                    .download_form__title Добавление тега
-                    input.download_form__input
-                .download_form__buttons
-                  button.download_form__button.cancel__button Отмена
-                  button.button.download_form__button Загрузить
+                      .download_form__title Добавление тега
+                      input.download_form__input
+                  .download_form__buttons
+                    button.download_form__button.cancel__button Отмена
+                    button.button.download_form__button Загрузить
           .jobs
             ul.jobs__list
               li.jobs__item.jobs_left__block 
@@ -112,14 +112,14 @@
                     button.button.review_form__button Загрузить
           .adding__reviews_block
             ul.reviews_block__list
-              li.jobs__item.jobs_left__block 
+              li.block__item.jobs_left__block 
                 .jobs_left__circle
                   svg(viewBox="0 0 100 100").jobs_left-shape
                     circle(cx="50" cy="50" r="40" ref="color-circle" fill="transparent" stroke="#fff").about_circle
                   .jobs_left__circle-text +
                 .jobs_left__desc
                   .jobs_left__text Добавить работу 
-              li.reviews_block__item     
+              li.reviews_block__item.block__item     
                 .reviews_user__desc
                   .user__desc_pic
                     img(src='../images/content/foto.jpg').user__desc_img
@@ -127,7 +127,7 @@
                     .user__name Имя Фамилия
                     .user__prof Программист  
                 .reviews_right__desc
-                  p.right__desc_text loremloremloremloremloremloremloremloremloremloremlorem 
+                  p.right__desc_text loremloremloremloremloremlorem loremloremloremloremlorem 
                   .right__desc_control
                     .control__edit Править
                     .control__del Удалить

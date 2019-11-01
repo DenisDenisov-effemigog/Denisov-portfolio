@@ -1,0 +1,160 @@
+.second-section__container{
+  margin-top: 30px;
+  
+}
+.jobs_block{
+  background-color: #fff;
+  padding: 25px;
+}
+.jobs__title{
+  border-bottom: 2px solid rgba(65,76,99,.2);
+}
+  .adding_jobs{
+    display: grid;
+    grid-template: 
+    "left right" 1fr
+    /1fr 1fr;
+    grid-gap: 20px;
+    padding-top: 30px;
+}
+.adding_jobs__left{
+  grid-area: left;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.jobs__download_block{
+  background-color: rgba(#ccc, 0.5);
+  width: 90%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.download_block__desc{
+  padding-bottom: 10px;
+}
+.button{
+  outline: none;
+    color: #fff;
+    border-radius: 41px;
+    padding: 5px 10px;
+    background: linear-gradient(45deg,rgb(63, 53, 203), rgb(0, 106, 237));
+}
+.adding_jobs__right{
+  padding: 20px;
+  grid-area: right;
+}
+.download_form__input{
+  border: none;
+  border-bottom: 1px solid #000;
+  color:  #414c63;
+  width: 100%;
+
+}
+.download_form__textarea{
+  resize: none;
+  width: 100%;
+}
+.cancel__button{
+  border: none;
+  background: transparent;
+  color: #0565eb;
+  padding-right: 25px;
+}
+.jobs{
+  padding-top: 30px;
+  background-color: #ccc;
+}
+.jobs__list{
+    display: flex;
+}
+.jobs__item{
+  width: 25%;
+  margin-right: 25px;
+  background-color: #fff;
+}
+.jobs_left__block{
+  grid-area: left;
+ background: linear-gradient(45deg,rgb(63, 53, 203), rgb(0, 106, 237));
+ padding: 50px;
+}
+.jobs_left__circle{
+  position: relative;
+  width: 165px;
+  margin: 0 auto;
+}
+.jobs_left-shape{
+  width: 165px;
+}
+.jobs_left__circle-text{
+  position: absolute;
+    top: 22%;
+    right: 36%;
+    bottom: 50%;
+    font-size: 81px;
+    color: #fff;
+}
+.jobs_left__text{
+    text-align: center;
+    color: #fff;
+}
+.jobs_right__block{
+  grid-area: right;
+}
+.jobs_right__pic{
+  background: url(../images/content/1.jpg) center center/cover no-repeat;
+  width: 250px;
+  height: 150px;
+}
+.jobs_right__list{
+  display: flex;
+  height: 100%;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.jobs_right__text{
+  padding: 5px 15px;
+  background-color: #fff;
+  border-radius: 50px;
+  color: #414c63;
+}
+.jobs_right__item{
+  padding: 5px;
+}
+.jobs_right__title{
+  font-size: 18px;
+  font-weight: bold;
+  color: #414c63;
+}
+.jobs_right__desc{
+  padding: 15px;
+}
+.jobs_right__work_desc{
+  font-size: 18px;
+  font-weight: bold;
+  color:rgba(#414c63, 0.5);
+  padding-top: 10px;
+}
+.jobs_right__link{
+  font-size: 18px;
+  font-weight: bold;
+  color:#4a00ed;
+  padding-top: 10px;
+}
+.right__desc_control{
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+.control__edit{
+  background: svg-load("pencil.svg", fill="#4a00ed", width="12px", height="12px") right  center no-repeat;
+  width: 80px;
+}
+.control__del{
+  background: svg-load("remove.svg", fill="red", width="12px", height="12px") right  center no-repeat;
+  width: 80px;
+}

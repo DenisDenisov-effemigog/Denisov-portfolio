@@ -1,0 +1,26 @@
+.footer-social__list{
+    display: flex;
+    padding-top: 40px;
+}
+.footer-social__item{
+    padding-right: 30px;
+}
+
+.footer-social__icon{
+    width: 45px;
+    padding: 10px;
+    fill: #67696f;
+    border: 1px solid #67696f;
+    border-radius: 20px;
+
+    &:hover{
+        fill: rgba(#67696f, .3)
+    }
+}
+.desc__social{
+    grid-area: soc;
+
+    @include tablets{
+        padding-right: 0;
+    }
+}

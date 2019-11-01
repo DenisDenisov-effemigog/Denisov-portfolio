@@ -1,0 +1,34 @@
+.left__block{
+    display: flex;
+    padding-right: 135px;
+
+    @include desktop{
+        flex-direction: column;
+    }
+
+    @include phones{
+        padding-right: 0;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+}
+.cd{
+    font-size: 48px;
+    font-weight: 600;
+}
+.copyright{
+    padding-right: 50px;
+
+    @include phones{
+        padding-right: 0;
+    }
+}
+.name{
+    font-size: 18px;
+    font-weight: bold;
+    color: #f8f8f8;
+    text-transform: uppercase;
+}
+.link{
+    padding-top: 35px;
+}

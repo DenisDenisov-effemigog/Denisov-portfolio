@@ -1,0 +1,14 @@
+.center__desc{
+    padding-top: 70px;
+    display: grid;
+    grid-template: 
+    "soc qoute" 1fr 
+    /1fr 1fr;
+    grid-gap: 40px;
+
+    @include tablets{
+        grid-template: 
+        "soc" "qoute" 1fr 
+        /1fr
+    }
+}

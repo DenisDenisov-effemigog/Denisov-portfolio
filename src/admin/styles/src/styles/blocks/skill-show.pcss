@@ -1,0 +1,28 @@
+.skills{
+    padding-top: 100px;
+
+    @include phones{
+        padding-top: 10px;
+    }
+    
+}
+.skills-row__list{
+    display: flex;
+
+    @include tablets{
+        justify-content: center;
+    }
+
+    @include phones{
+        flex-wrap: wrap;
+    }
+}
+.skills-row__item{
+    @include phones{
+        width: 50%;
+    }
+}
+.skills-row__title{
+    font-size: 24px;
+    font-weight: bold;
+}

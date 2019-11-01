@@ -1,0 +1,20 @@
+.myWork__school{
+    padding-left: 115px;
+    grid-area: mySch;
+
+    @include tablets{
+        text-align: center;
+        padding-left: 0;
+    }
+}
+.school-nav__list{
+    justify-content: center;
+}
+.school__link{
+    color: $links-color;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 30px;
+    background: svg-load("link.svg", fill=$links-color, width="17px", height="17px") left center no-repeat;
+}
+

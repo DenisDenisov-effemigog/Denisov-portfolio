@@ -1,0 +1,28 @@
+.header-nav__list{
+    display: flex;
+    
+    @include tablets{
+        display: none;
+    }
+}
+.header-nav-block{
+    grid-area: nav;
+
+    @include tablets{
+        grid-area: icons;
+    }
+}
+.header-nav__item{
+    padding-right: 10%; 
+    
+    &:last-child{
+        padding-right: 0;
+    }
+
+    @include desktop{
+        padding-right: 8%
+    }
+}
+.header-nav__link:hover{
+    border-bottom: 2px solid $text-color;
+}

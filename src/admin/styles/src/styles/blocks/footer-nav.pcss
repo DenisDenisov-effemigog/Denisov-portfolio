@@ -1,0 +1,24 @@
+.footer-nav__list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.footer-nav__item{
+    padding-right: 7%;
+    color: #f8f8f8;
+
+    &:last-child{
+        padding-right: 0;
+    }
+
+    @include tablets{
+        width: 25%;
+        padding-bottom: 15px;
+    }
+
+    @include phones{
+        width: 50%;
+    }
+}
+.footer-nav__link:hover{
+    border-bottom: 2px solid #f8f8f8;
+}

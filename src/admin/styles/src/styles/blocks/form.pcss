@@ -1,0 +1,81 @@
+.feedback{
+    width: 60%;
+    padding-top: 70px;
+
+    @include tablets{
+        width: 90%;
+        text-align: center;
+    }
+}
+.form-block__title{
+    text-align: center;
+}
+.input__form{
+    height: 60%;
+}
+.input__form, .textarea__form{
+    border: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    width: 100%;  
+    outline: none; 
+    padding-left: 50px;
+}
+.input__form--name{
+    background: svg-load("user.svg", fill="rgba(#464d62, .3)", width="30px", height="30px") left center no-repeat;
+}
+.form__title{
+    padding-bottom: 30px;
+    color: rgba(#464d62, .3)
+}
+.input__form--mail{
+    background: svg-load("envelope.svg", fill="rgba(#464d62, .3)", width="30px", height="30px") left center no-repeat;
+}
+.textarea__form{
+    resize: none;
+    background: svg-load("message.svg", fill="rgba(#464d62, .3)", width="30px", height="30px") left center no-repeat;
+}
+.form__row--textarea{
+    padding-top: 70px;
+}
+.form__row--button{
+    padding-top: 70px;
+}
+
+.button__form{
+    width: 200px;
+    padding: 20px 0;
+    background: #5166bf;
+    color: #fff;
+    border-radius: 38px 0;
+    font-weight: 800;
+    text-transform: uppercase;
+    outline: none;
+    
+    &:hover{
+        background: linear-gradient(45deg, #7c00ea, #4a00ed);
+    }
+
+    @include tablets{
+        width: 360px;
+        height: 80px;
+
+    }
+
+    @include phones{
+        width: 250px;
+    }
+}
+.form__row{
+    display: flex;
+    justify-content: space-between;
+}
+.form__label{
+    padding-right: 30px;
+    width: 100%;
+  
+
+    &:last-child{
+        padding-right: 0;
+    }
+}

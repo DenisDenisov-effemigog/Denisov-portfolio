@@ -1,0 +1,53 @@
+.review-arrow__prev, .review-arrow__next{
+    width: 10px;
+    fill: #353e4e;
+    transition: .3s;
+}
+.reviews__title{
+    text-align: center;
+}
+.review-arrow__next{
+    transform: rotate(180deg)
+}
+.review__flexbox{
+    display: flex;
+
+    @include phones{
+    flex-direction: column;
+    }
+}
+.review-button{
+    display: flex;
+    align-items: center;
+    padding-left: 110px;
+
+    @include phones{
+        padding-left: 0;
+        justify-content: center;
+    }
+
+}
+.review-buttons__item{
+    border: 1px solid #353e4e;
+    padding: 3px 9px;
+    border-radius: 50%;
+    transition: .3s;
+    margin-right: 10px;   
+
+    @include phones{
+        padding: 19px 26px;
+    }
+
+    
+    &:hover{
+        border-color: rgba(#353e4e, .3);
+    }
+}
+.review-buttons__item:hover .review-arrow__prev{
+    fill: rgba(#353e4e, .3);
+    
+} 
+.review-buttons__item:hover .review-arrow__next{
+    fill: rgba(#353e4e, .3);
+    
+}

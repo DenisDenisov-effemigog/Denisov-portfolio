@@ -1,0 +1,67 @@
+.slider-pic__item{
+    width: 110px;
+
+
+    @include desktop{
+        width: 90px;
+    }
+
+    &:hover{
+        border: 2px solid orange;
+    }
+}
+.active{
+    border: 2px solid orange;
+}
+.slider-block{
+    @include tablets{
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    @include phones{
+        width: 100%;
+    }
+}
+.slider{
+    grid-area: slider;   
+}
+.slider-block{
+    position: relative;
+}
+.slider__preview{
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+
+    @include phones{
+        display: none;
+    }
+}
+.slider__button{
+    position: absolute;
+    bottom: -36px;
+    right: 0;
+    background: #353e4e;
+    justify-content: space-between;
+    display: flex;
+}
+
+.slider-buttons__item{
+    width: 27px;
+    color: #fff;
+    transition: .3s;
+    transform: rotate(-90deg);
+    padding: 8px;
+    cursor: pointer;
+
+    &:hover{
+        color: #ccc;
+    }
+}
+.arrow__prev, .arrow__next{
+    cursor: pointer;
+}
+
+
+

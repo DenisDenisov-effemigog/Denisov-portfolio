@@ -1,0 +1,54 @@
+<template lang="pug">
+    header.header
+          .container.header__container
+            .admin__info
+              .info__foto
+                img(src='../../images/content/foto.jpg').info__img
+              .info__name
+                p.name Денисов Денис
+            .admin__panel
+              p.panel__desc Панель администрирования
+              p.panel__exit Выйти
+</template>
+<style lang="postcss">
+
+    .info__foto{
+        width: 60px;
+        border-radius: 50%;
+        height: 60px;
+        overflow: hidden;
+      }
+      .info__img{
+        max-width: 100%;
+        height: 100%;
+      }
+      .header{
+        background-color: #424269;
+      }
+      .header__container{
+        display: grid;
+        grid-template: 
+        "info panel" 1fr 
+        /1fr 3fr;
+        color: #fff;
+        align-items: center;
+        padding: 15px 0;
+      }
+      .admin__info{
+        grid-area: info;
+        display: flex;
+        align-items: center;
+      }
+      .info__name{
+        font-size: 18px;
+        font-weight: 700;
+        padding-left: 20px;
+        
+      }
+      .admin__panel{
+        display: flex;
+        grid-area: panel;
+        justify-content: space-between;
+        font-size: 14px;
+      }
+</style>

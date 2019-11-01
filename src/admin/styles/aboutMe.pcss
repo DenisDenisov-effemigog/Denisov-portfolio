@@ -1,0 +1,78 @@
+
+.title{
+      font-size: 21px;
+      color: #414c63;
+      font-weight: bold;
+      padding-top: 40px;
+    }
+.block_about__form{
+      display: grid;
+      grid-template: 
+      "left right" 1fr
+      / 1fr 1fr;
+      grid-gap: 20px;
+      padding-top: 30px;
+  }
+.about_left__block{
+    grid-area: left;
+  }
+.block{
+    padding: 30px;
+  }
+  .about_form__title{
+    font-size: 18px;
+    color: rgba(#414c63, 0.5);
+  }
+  .about_form__row{
+    border-bottom: 2px solid rgba(#414c63, 0.2);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .about__form__check_button{
+    display: flex;
+  }
+  .check_button__check_mark{
+    width:30px;
+    height: 30px;
+    background: svg-load("tick.svg",  fill="green", width="15px", height="15px") center center no-repeat;
+  }
+  .check_button__check_cross{
+    width:30px;
+    height: 30px;
+     background: svg-load("remove.svg",  fill="red", width="12px", height="12px") center center no-repeat;
+  }
+  .about_form__input{
+    border: none;
+    border-bottom: 1px solid black;
+    width: 55%;
+  }
+  .about_right__block{
+    grid-area: right;
+  }
+  .about_form__input_percent_skills, .about_form__input_new_skills{
+    border: none;
+    border-bottom: 1px solid black;
+  }  
+  .about_form__input_percent_skills{
+    width: 20%;
+  }
+  .about_form-shape{
+    width: 40px;
+    
+  }
+  .about_form__button_add{
+    position: relative;
+    width: 40px;
+  }
+  .about_form-text{
+    position: absolute;
+    top: 34%;
+    right: 25%;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+  }

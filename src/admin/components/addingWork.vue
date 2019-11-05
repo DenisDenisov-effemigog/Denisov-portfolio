@@ -1,8 +1,5 @@
 <template lang="pug">
-    div.hero_desc
-        headerBlock
         section.section.second__section
-            asideBlock      
             .container.second-section__container
             .jobs_block 
                 h2.title.jobs__title Добавление Работы  
@@ -64,14 +61,8 @@
 </style>
 <script>
   import {Validator} from "simple-vue-validator"; 
-  import headerBlock from "./headerBlock";
-  import asideBlock from "./asideBlock";
-
-  export default {
-   
-    components: {
-      headerBlock, asideBlock
-    },
-    
+  
+  export default{
+      
   }
 </script>

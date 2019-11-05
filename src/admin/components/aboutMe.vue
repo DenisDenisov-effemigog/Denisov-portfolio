@@ -1,30 +1,63 @@
 <template lang="pug">
-    div.hero_desc
-        headerBlock
         section.section.first__section  
-            asideBlock      
             .container.first__container
-            .block__about
-                .title.about__title Блок &laquo Обо мне &raquo
-                .block_about__form
-                    .about_left__block
-                        inner
-                    .about_right__block
-                        inner 
+                .block
+                    .block__about
+                        h1.title.about__title Блок &laquo Обо мне &raquo
+                        button.circle__button
+                            svg(viewBox="0 0 100 100").about_form-shape
+                                circle(cx="50" cy="50" r="40" ref="color-circle" fill="url(#gradient)").about_form__circle
+                                linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0")
+                                    stop(offset="0%" stop-color="rgb(63, 53, 203)")
+                                    stop(offset="100%" stop-color="rgb(0, 106, 237)")
+                            .about_form-text +
+                        .about__add-new Добавить группу
+                    form(@submit.prevent="addNewCategory")
+                        input(type="text" v-model="title" placeholder="Имя категории")    
+                        input(type="submit" placeholder="Добавить")  
+                .block__content
+                    ul.skill-list
+                        li.skill-list__item(v-for="category in categories" :key="category.id")
+                            skillGroup(
+                                :category="category"
+                            )
 </template>
 <style lang="postcss" src="../main.pcss" >
 
+  
 </style>
 <script>
-    import {Validator} from "simple-vue-validator"; 
-    import inner from "./inner";
-    import headerBlock from "./headerBlock";
-    import asideBlock from "./asideBlock";
+    import {mapActions, mapState} from "vuex";
+   
 
     export default {
-   
+        
         components: {
-        inner, headerBlock, asideBlock
+            skillGroup: () =>  import('./skill-group')
+        },
+        data() {
+            return {
+                title: ""
+            }
+        },
+        created(){
+            this.fetchCategories();
+        },
+        computed: {
+            ...mapState("categories", {
+                categories: state => state.categories
+            })
+        },
+        methods: {
+            ...mapActions("categories", ["addCategory", "fetchCategories"]),
+            async addNewCategory() {
+                try{
+                await this.addCategory(this.title)
+
+                }catch (error) {
+                    alert(error.message);
+                }
+            }
         },
         
     }

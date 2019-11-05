@@ -1,8 +1,5 @@
 <template lang="pug">
-    div.hero_desc
-        headerBlock
         section.section.third__section
-            asideBlock
             .container.third_section__continer
             .review
                 h2.review__title.title Добавить Отзывы
@@ -54,14 +51,9 @@
 </style>
 <script>
   import {Validator} from "simple-vue-validator"; 
-  import headerBlock from "./headerBlock";
-  import asideBlock from "./asideBlock";
 
   export default {
    
-    components: {
-      headerBlock, asideBlock
-    },
-    
+   
   }
 </script>

@@ -3,24 +3,28 @@ import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
-import aboutMe from './components/aboutMe.vue'
-import addingWork from './components/addingWork.vue'
-import addingRev from './components/addingRev.vue'
-
 
 const routes =[
     {
         path: '/',
-        component: aboutMe
-    },
+        component: () => import('./components/aboutMe.vue')
+},
     {
         path: '/work',
-        component: addingWork
+        component: () => import('./components/addingWork.vue')
     },
     {
         path: '/rev',
-        component: addingRev
+        component: () => import('./components/addingRev.vue')
+    },
+    {
+        path: '/login',
+        component: () => import('./components/login.vue'),
+        meta: {
+            public: true
+          }
     }
+
 ];
 
 export default new VueRouter({routes});

@@ -1,14 +1,15 @@
 <template lang="pug">
     .skill-container
-        h2 {{category.category}}
+        .flex_block__skill
+            h2 {{category.category}}
+            button(type="button" @click = "removeExistedBlock").remove_block X
         hr
-        table
+        table.skill-table
           skill-item(
               v-for="skill in category.skills"
               :key="skill.id"
               :skill="skill"
               ) 
-        hr
         form(
             @submit.prevent="addNewSkill"
             :class={blocked: formBlocked}
@@ -51,7 +52,15 @@ export default {
     },
     methods: {
         ...mapActions("skills", ["addSkill"]),
-        
+        ...mapActions("categories", ["removeBlock"]),
+        async removeExistedBlock() {
+            try {
+                await this.removeBlock(
+                    {id: this.category.id})
+            } catch (error) {
+                
+            }
+        },
         async addNewSkill() {
             this.formBlocked = true;
             try {
@@ -124,4 +133,13 @@ export default {
       width: 40px;
       
     }
+    .flex_block__skill{
+        display: flex;
+        justify-content: space-between;
+    }
+    .remove_block{
+        cursor: pointer;
+        color: rgba(#000, 0.6);
+    }
+
 </style>

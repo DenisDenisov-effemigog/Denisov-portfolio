@@ -6,16 +6,11 @@
           router-view
 </template>
 <script>
-import headerBlock from "./components/headerBlock";
-import asideBlock from "./components/asideBlock";
-
-  export default {
-   
-    components: {
-      headerBlock, asideBlock
-    },
-    
+import { mapState, mapActions, mapGetters } from "vuex";
+export default {
+  components: {
+    headerBlock: () => import("./components/headerBlock"),
+    asideBlock: () => import("./components/asideBlock")
   }
-
-
+};
 </script>

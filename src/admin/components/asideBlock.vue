@@ -16,9 +16,9 @@ export default {
   data(){
     return{
       tabs: [
-        {title: "Обо мне", href: "./"},
-        {title: "Работы", href: "./work"},
-        {title: "Отзывы", href: "./rev"},
+        {title: "Обо мне", href: "/"},
+        {title: "Работы", href: "/work"},
+        {title: "Отзывы", href: "/rev"},
       ]
     }
   }
@@ -36,15 +36,13 @@ export default {
         padding: 15px 30px;
         border-bottom: 2px solid transparent;
     
-        &:hover{
+        &:hover,
+        .active {
           border-bottom: 2px solid #383bcf;
           color: #383bcf
         }
       }
-      .active{
-        border-bottom: 2px solid #383bcf;
-        color: #383bcf
-      }
+      
       .nav__link::before{
         content: attr(data-text);
       }

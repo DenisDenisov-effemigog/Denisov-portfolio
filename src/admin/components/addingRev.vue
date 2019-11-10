@@ -5,8 +5,16 @@
                 h2.review__title.title Добавить Отзывы
                 .review__block
                     .adding__review
-                        .adding__foto
-                            .adding__foto_pic
+                        form.adding__foto
+                            input(
+                                type="file"
+                                @change="appendFileAndRenderPhoto"
+                                ).adding__foto_pic
+                            .adding__foto_img
+                                .adding__foto_avatar_empty(
+                                    :class="{filled: renderedPhoto.lenght}"
+                                    
+                                )    
                             .adding__foto_button Добавить фото
                     .adding__review_form
                         form.review_block__form
@@ -46,14 +54,34 @@
                                 .control__edit Править
                                 .control__del Удалить
 </template>
-<style lang="postcss" src="../main.pcss" >
 
-</style>
 <script>
   import {Validator} from "simple-vue-validator"; 
 
   export default {
-   
+   data: () => ({
+       renderedPhoto: "",
+       review: {
+           photo: ""
+       }
+   }),
+   methods: {
+       appendFileAndRenderPhoto(e) {
+           const file = e.target.files[0];
+           this.review.photo = file;
+
+           const reader = new FileReader();
+
+           try {
+               reader.readAsDataURL(file);
+               reader.onload = () => {
+                   this.renderPhoto = reader.result;
+               }
+           } catch (error) {
+               
+           }
+       }
+   },
    
   }
 </script>

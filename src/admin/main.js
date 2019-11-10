@@ -4,6 +4,7 @@ import SimpleVueValidation from 'simple-vue-validator';
 import router from './router'
 import store from './store'
 import axios from './requests'
+import "./main.pcss";
 
 store.$axios = axios;
 

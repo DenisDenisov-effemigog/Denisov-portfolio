@@ -1,4 +1,4 @@
-export default{
+export default {
     namespaced: true,
     state: {
         categories: []
@@ -6,6 +6,7 @@ export default{
     mutations: {
         SET_CATEGORIES(state, categories) {
             state.categories = categories
+            
         },
         ADD_CATEGORY(state, category) {
             state.categories.unshift(category);
@@ -14,18 +15,48 @@ export default{
             state.categories = state.categories.map(category => {
                 if(category.id === newSkill.category) {
                     category.skills.push(newSkill);
+
                 }
                 return category
             })
+
         },
         REMOVE_SKILL(state, deletedSkill) {
-            state.categories = state.categories.map(category => {
-                if(category.id === skill.category) {
-                    category.skills = category.skills.filter(skill => skill.id !== deletedSkill.id)
+            const removeSkill = category => {
+                category.skills = category.skills.filter(
+                    skill => skill.id !== deletedSkill.id)
+            }
+            const findRequiredCategory = category => {
+                if(category.id === deletedSkill.category) {
+                   removeSkill(category);
                 }
                 return category;
+            }
+            state.categories = state.categories.map(findRequiredCategory)
+        },
+        EDIT_SKILL(state, editedSkill) {
+            const editSkill = category => {
+                category.skills = category.skills.map(
+                    skill => skill.id === editedSkill.id ? editedSkill : skill )
+            }
+            const findRequiredCategory = category => {
+                if(category.id === editedSkill.category) {
+                   editSkill(category);
+                }
+                return category;
+            }
+            state.categories = state.categories.map(findRequiredCategory)
+        
+        },
+        REMOVE_BLOCK(state, deletedCategory) {
+            state.categories = state.categories.map(category => {
+                if(category.id === deletedCategory.category){
+                    category = category.filter(
+                        category => category !== deletedCategory.id
+                    )
+                }
             })
-        }
+        }  
     },
     actions: {
         async addCategory({commit}, title){
@@ -40,12 +71,22 @@ export default{
         async fetchCategories({ commit }) {
             try {
                 const { data } = await this.$axios.get("/categories/203");
-                
                 commit("SET_CATEGORIES", data)
                 
             } catch (error) {
                 
             }
-        }
+        },
+        async removeBlock({commit}, category) {
+            
+            try {
+                const {data} = await this.$axios.delete(`/categories/${category.id}`);
+                console.log(data);
+                
+                commit("REMOVE_BLOCK", categories, {root: true});
+            } catch (error) {
+                
+            }
+        },
     }
 }

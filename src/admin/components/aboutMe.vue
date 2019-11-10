@@ -22,10 +22,7 @@
                                 :category="category"
                             )
 </template>
-<style lang="postcss" src="../main.pcss" >
 
-  
-</style>
 <script>
     import {mapActions, mapState} from "vuex";
    
@@ -35,11 +32,11 @@
         components: {
             skillGroup: () =>  import('./skill-group')
         },
-        data() {
-            return {
+        data: () => ({
+           
                 title: ""
-            }
-        },
+            
+        }),
         created(){
             this.fetchCategories();
         },
@@ -62,3 +59,16 @@
         
     }
 </script>
+<style lang="postcss" scoped>
+.block__about{
+    display: flex;
+    padding: 25px;
+    padding-top: 25px;;
+
+}
+.about__add-new{
+    align-self: center;
+    padding-left: 25px;
+}
+
+</style>

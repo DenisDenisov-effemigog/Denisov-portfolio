@@ -10,26 +10,7 @@
                             button.button.download_block__button загрузить
                     .adding_jobs__right
                         .jobs__download_form
-                            form.download_form
-                                .download_form__row
-                                    label.download_form__label
-                                        .download_form__title Название
-                                        input.download_form__input
-                                .download_form__row
-                                    label.download_form__label
-                                            .download_form__title Ссылка
-                                            input.download_form__input
-                                .download_form__row
-                                    label.download_form__label
-                                            .download_form__title Описание
-                                            textarea.download_form__textarea
-                                .download_form__row
-                                    label.download_form__label
-                                        .download_form__title Добавление тега
-                                        input.download_form__input
-                                .download_form__buttons
-                                    button.download_form__button.cancel__button Отмена
-                                    button.button.download_form__button Загрузить
+                            adding-work-form   
             .jobs
                 ul.jobs__list
                     li.jobs__item.jobs_left__block 
@@ -40,29 +21,19 @@
                         .jobs_left__desc
                         .jobs_left__text Добавить работу 
                     li.jobs__item.jobs_right__block    
-                        .jobs_right__pic
-                            ul.jobs_right__list
-                                li.jobs_right__item
-                                p.jobs_right__text Html
-                                li.jobs_right__item 
-                                p.jobs_right__text Html
-                                li.jobs_right__item 
-                                p.jobs_right__text Html
-                        .jobs_right__desc
-                            h2.jobs_right__title Новая работа
-                            p.jobs_right__work_desc Описание этой работы
-                            p.jobs_right__link http://google.com
-                        .right__desc_control
-                                .control__edit Править
-                                .control__del Удалить
+                        adding-work-desc(
+                            v-for="item in 3"
+                            :key="item.id"
+                        )
 </template>
-<style lang="postcss" src="../main.pcss" >
 
-</style>
 <script>
   import {Validator} from "simple-vue-validator"; 
   
   export default{
-      
+      components:{
+          addingWorkForm: () => import("./addingWorkForm"),
+          addingWorkDesc: () => import("./addingWorkDesc")
+      },
   }
 </script>

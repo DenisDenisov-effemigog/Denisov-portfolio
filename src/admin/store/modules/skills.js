@@ -12,12 +12,19 @@ export default{
        async removeSkill({commit}, skill) {
            try {
                const {data} = await this.$axios.delete(`/skills/${skill.id}`);
-               console.log(data);
                commit("categories/REMOVE_SKILL", skill, {root: true});
                
            } catch (error) {
                
            }
-       }  
+       },
+        async editSkill ({commit}, editedSkill) {
+            try {
+                const {data} = await this.$axios.post(`/skills/${editedSkill.id}`, editedSkill);
+                commit("categories/EDIT_SKILL", data.skill, {root: true});
+            } catch (error) {
+                
+            }
+        }
     }
 }

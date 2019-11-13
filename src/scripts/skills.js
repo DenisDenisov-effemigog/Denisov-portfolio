@@ -1,5 +1,6 @@
 
 import Vue from 'vue';
+import axios from "axios";
 
 
 const skill = {
@@ -31,7 +32,12 @@ new Vue({
     skills: []
   }),
   components: { skillsRow },
-  created() {   
-      this.skills = require('../data/skills.json');
+  async  created() {   
+      let userId = 203;
+      const responseSkill = await axios.get('/https://webdev-api.loftschool.com/categories/' + userId);
+      
+      
+      const categories = responseSkill.data;
+      this.skills = categories;
     }
 })

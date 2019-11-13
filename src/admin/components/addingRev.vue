@@ -1,87 +1,151 @@
 <template lang="pug">
-        section.section.third__section
-            .container.third_section__continer
-            .review
-                h2.review__title.title Добавить Отзывы
-                .review__block
-                    .adding__review
-                        form.adding__foto
-                            input(
-                                type="file"
-                                @change="appendFileAndRenderPhoto"
-                                ).adding__foto_pic
-                            .adding__foto_img
-                                .adding__foto_avatar_empty(
-                                    :class="{filled: renderedPhoto.lenght}"
-                                    
-                                )    
-                            .adding__foto_button Добавить фото
-                    .adding__review_form
-                        form.review_block__form
-                            .review_form__row
-                                label.review_form__label
-                                    .review_form__title Имя автора
-                                    input.review_form__input
-                                label.review_form__label
-                                    .review_form__title Титул автора
-                                    input.review_form__input
-                            .review_form__row  
-                                label.review_form__label_textarea
-                                    .review_form__title Отзыв
-                                    textarea.review_form__textarea
-                            .review_form__buttons
-                                button.review_form__button.cancel__button Отмена
-                                button.button.review_form__button Загрузить
-            .adding__reviews_block
-                ul.reviews_block__list
-                    li.block__item.jobs_left__block 
-                        .jobs_left__circle
-                            svg(viewBox="0 0 100 100").jobs_left-shape
-                                circle(cx="50" cy="50" r="40" ref="color-circle" fill="transparent" stroke="#fff").about_circle
-                            .jobs_left__circle-text +
-                        .jobs_left__desc
-                            .jobs_left__text Добавить работу 
-                    li.reviews_block__item.block__item     
-                        .reviews_user__desc
-                            .user__desc_pic
-                                img(src='../../images/content/foto.jpg').user__desc_img
-                            .user__desc_name
-                                .user__name Имя Фамилия
-                                .user__prof Программист  
-                        .reviews_right__desc
-                        p.right__desc_text loremloremloremloremloremlorem loremloremloremloremlorem 
-                            .right__desc_control
-                                .control__edit Править
-                                .control__del Удалить
+    .container(v-if="editMode === false")
+            .user_block
+                .user_pic 
+                    .image(
+                    :class="{filled: renderedPhoto.length}"
+                    :style="{'backgroundImage' : `url(${renderedPhoto})`}"
+                ) 
+                .user_info    
+                    .user_info__full_name
+                            .user_info__first_name {{review.author}}
+                    .user_info__title
+                            .user_profession {{review.occ}}
+            .user_desc
+                p.user_desc {{review.text}}
+            .user__desc_control        
+                button(@click="editMode=true").control__edit Править
+                button(@click="deleteRev").control__del Удалить
+    .container(v-else)
+        .user_block
+            .user_pic 
+                input(
+                    type="file"
+                    @change="appendFileAndRenderPhoto"
+                    ) 
+            .user_info__full_name
+                    input(type="text" v-model="editedReview.author")
+            .user_info__title
+                    input(type="text" v-model="editedReview.occ")
+        
+        .user_desc
+            textarea(type="text" v-model="editedReview.text")
+        .user__desc_control       
+            button(@click="editExistedRev").control__edit Сохранить
+            button(@click="editMode=false").control__del Отмена           
 </template>
-
 <script>
-  import {Validator} from "simple-vue-validator"; 
+import { mapActions } from "vuex";
 
-  export default {
-   data: () => ({
-       renderedPhoto: "",
-       review: {
-           photo: ""
-       }
-   }),
-   methods: {
-       appendFileAndRenderPhoto(e) {
-           const file = e.target.files[0];
-           this.review.photo = file;
 
-           const reader = new FileReader();
 
-           try {
-               reader.readAsDataURL(file);
-               reader.onload = () => {
-                   this.renderPhoto = reader.result;
-               }
-           } catch (error) {
-               
-           }
-       }
-   },
+export default {
+    data() {
+        return {
+            renderedPhoto: "",
+            editMode: false,
+            editedReview: {...this.review}
+
+        }
+    },
+    props: {
+        review: {
+            type: Object,
+            photo: "",
+            default: () => ({}),
+            required: true
+     }
+    },
+    methods: {
+        ...mapActions("reviews", ["editRev", "removeRev"]),
+        async editExistedRev() {
+            try {
+                await this.editRev(this.editedReview); 
+                this.editMode = false;
+      }     catch (error) {
+        
+      }
+      },
+      async deleteRev() {
+        try {
+          await this.removeRev({
+            id: this.review.id
+          })
+        } catch (error) {
+          
+        }
+      },
+      appendFileAndRenderPhoto(e) {
+      const file = e.target.files[0];
+      this.review.photo = file;
+
+      const reader = new FileReader();
+
+      try {
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+        this.renderedPhoto = reader.result;
+        };
+      } catch (error) {
+        //=(
+      }
+    }
+    },
+}
+</script>
+<style lang="postcss" scoped>
+
+.container{
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+button{
+border: none;
+
+}
+.user_pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.user_block{
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(#000, 0.3);
+    padding-bottom: 20px;
+}
+.user_info{
+    padding-left: 30px;
+
+}
+
+.image{
+    max-width: 100%;
+    height: 100%;
+    background-color: green;
+
+}
+.user__desc_control{
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .control__edit, .control__del{
+    width: 80px;
+    height: 25px;
+    padding-right: 100px;
+  }
+  .control__edit{
+    background: svg-load("pencil.svg", fill="#4a00ed", width="12px", height="12px") right  center no-repeat;
+    
+  }
+  .control__del{
+    background: svg-load("remove.svg", fill="red", width="12px", height="12px") right  center no-repeat;
    
   }
-</script>
+  textarea{
+      resize: none;
+  }
+</style>

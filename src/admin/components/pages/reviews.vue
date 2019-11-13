@@ -54,7 +54,11 @@
                 @click="addRev"
               )
     .container_rev
-      adding-rev
+      ul.rev_list
+        li.rev_item(v-for="review in reviews" :key="review.id")
+          adding-rev(
+            :review="review"
+          )
 </template>
 
 <script>
@@ -70,8 +74,16 @@ export default {
       occ: ""
     }
   }),
+  created() {
+    this.fetchRev();
+  },
+  computed: {
+    ...mapState("reviews",{
+      reviews: state => state.reviews
+    })
+  },
   methods: {
-    ...mapActions("skills", ["addReview"]),
+    ...mapActions("reviews", ["addReview", "fetchRev"]),
     async addRev() {
       try {
         await this.addReview(this.review);
@@ -106,7 +118,12 @@ export default {
 
 <style lang="postcss" scoped>
 @import "../../../styles/mixins.pcss";
-
+.container_rev{
+  margin-top: 20px;
+}
+.rev_item{
+  padding-bottom: 25px;
+}
 .card {
   background: #fff;
   box-shadow: 4.1px 2.9px 20px 0 rgba(0, 0, 0, 0.07);
@@ -223,7 +240,7 @@ export default {
     content: "";
     height: 115px;
     width: 85px;
-    background: svg-load("filled-user.svg", fill=#fff) center center no-repeat;
+    background: svg-load("user.svg", fill=#fff) center center no-repeat;
     display: block;
     position: absolute;
     top: 50%;
@@ -278,6 +295,13 @@ export default {
   &:last-child {
     margin-right: 0px;
   }
+}
+.rev_list{
+  display: flex;
+  flex-wrap: wrap;
+}
+.rev_item{
+  width: 45%;
 }
 </style>
 

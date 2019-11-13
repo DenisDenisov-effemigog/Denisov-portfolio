@@ -64,7 +64,9 @@
     .jobs
       ul.jobs_list
         li.jobs_item(v-for="work in works" :key="work.id")
-          adding-work
+          adding-work(
+            :work="work"
+          )
 
 </template>
 <script>
@@ -129,7 +131,12 @@ export default {
 
 <style lang="postcss" scoped>
 @import "../../../styles/mixins.pcss";
-
+.jobs{
+  margin-top: 25px;
+}
+.jobs_item{
+  padding-bottom: 25px;
+}
 .card {
   background: #fff;
   box-shadow: 4.1px 2.9px 20px 0 rgba(0, 0, 0, 0.07);
@@ -208,7 +215,7 @@ export default {
   }
 }
 .works__form-addphoto {
-  color: #383bcf;
+  
   font-weight: 600;
 }
 .works__form-userpic {
@@ -223,11 +230,18 @@ export default {
     margin-bottom: 30px;
   }
 }
-
+.works__form-avatar-upload{
+  background-color: #dee4ed;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .works__form-avatar-empty {
   width: 200px;
   height: 200px;
-  background: #dee4ed;
+  text-align: center;
   position: relative;
 
   &:before {
@@ -290,5 +304,12 @@ export default {
   &:last-child {
     margin-right: 0px;
   }
+}
+.jobs_list{
+  display: flex;
+  flex-wrap: wrap;
+}
+.jobs_item{
+  width: 45%;
 }
 </style>
